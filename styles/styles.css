@@ -8,6 +8,8 @@
     --orange: #FF9D00;
     --yellow: #FFC600;
     --white: #FFFFFF;
+
+    scroll-behavior: smooth;
 }
 *{
     margin: 0;
@@ -24,6 +26,9 @@ body{
     font-weight: 400;
     color: var(--white);
     font-size: 1.125rem;
+}
+main{
+    min-height: 100vh;
 }
 h1,h2,h3,h4,h5,h6{
     font-weight: 800;
@@ -127,6 +132,7 @@ header{
 .ide-code-left li{
     display: flex;
     gap: 2rem;
+    color: var(--light-grey);
 }
 .ide-code-left li span{
     color: var(--yellow);
@@ -143,4 +149,11 @@ header{
 .ide-code-right li span{
     color: var(--orange);
     font-weight: 300;
+}
+
+/* DISCOS */
+.error{
+    width: 100%;
+    text-align: center;
+    margin-top: 16rem;
 }

@@ -51,7 +51,8 @@ export class DiscoController {
   cargar() {
     try {
       const datosDisco = this.#pedirDatosDisco();
-      this.discoService.cargarDisco(datosDisco);
+      const disco = this.discoService.cargarDisco(datosDisco);
+      if (disco) this.mostrar();
     } catch (error) {
       alert(error.message);
     }
@@ -61,6 +62,15 @@ export class DiscoController {
    * Muestra todos los discos en el DOM
    */
   mostrar() {
-    console.log(this.discoService.getDiscos());
+    const discosFound = this.discoService.getDiscos();
+    console.log(discosFound);
+
+    const discos = document.querySelector("#discos");
+
+    if (!discosFound || discosFound.length === 0) {
+      discos.innerHTML = `<p class="error">No se encontraron discos</p>`;
+    } else {
+      discos.innerHTML = ``;
+    }
   }
 }

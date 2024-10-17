@@ -9,6 +9,8 @@ function cargar() {
 
 function mostrar() {
   discoController.mostrar();
+  
+  
 }
 
 //* Event Listeners
@@ -17,3 +19,7 @@ const mostrarButton = document.querySelector("#mostrar");
 
 cargarButton.addEventListener("click", cargar);
 mostrarButton.addEventListener("click", mostrar);
+
+document.addEventListener("DOMContentLoaded", function () {
+  mostrar();
+});

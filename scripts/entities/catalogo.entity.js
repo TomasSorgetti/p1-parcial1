@@ -17,6 +17,7 @@ export class Catalogo {
   addDisco(disco) {
     this.#discos.push(disco);
     this.#stock.addStock(disco.nombre);
+    return disco;
   }
   removeStock(diskName) {
     this.#stock.removeStock(diskName);
