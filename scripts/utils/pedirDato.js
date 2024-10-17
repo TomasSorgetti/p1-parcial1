@@ -1,4 +1,4 @@
-import { Validator } from "../validators/data.validator";
+import { Validator } from "../validators/data.validator.js";
 
 /**
  *  Pide un dato al usuario y se asegura de que es un dato correcto, si no lo es, se repite el proceso.
@@ -23,10 +23,3 @@ export function pedirDato(msg, isNumber = false) {
     return pedirDato(msg, isNumber);
   }
 }
-
-
-
-
-
-
-

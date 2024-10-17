@@ -2,34 +2,74 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <!-- Reemplazar por los datos que correspondan -->
-    <title>
-      Programación I | Parcial 1 | APELLIDO, NOMBRE | APELLIDO, NOMBRE
-    </title>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0,user-scalable=no"
     />
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="stylesheet" href="styles/styles.css" />
-    <!-- scripts -->
-    <script type="module" src="scripts/index.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Programación I | Parcial 1 | Sorgetti Tomás</title>
   </head>
   <body>
-    <header>
-      <!-- Reemplazar por los datos que correspondan -->
-      <h1>Programación I | Parcial 1 | APELLIDO, NOMBRE | APELLDIO, NOMBRE</h1>
-    </header>
-    <main>
-      <h2>Mis discos</h2>
-      <button id="cargar">Cargar nuevo disco</button>
-      <button id="mostrar">Mostrar discos</button>
-      <div id="discos">
-        <!--
+    <div class="wrapper">
+      <header>
+        <div class="hero-content">
+          <h1>Primer parcial <span>Programación I</span></h1>
+          <p>
+            Lorem ipsum dolor sit tore cupiditate dolore accusantium magni, odio
+            quos numquam eaque ipsa tempora. Incidunt similique eius cum velit.
+          </p>
+          <div class="buttons-container">
+            <a class="btn btn-secondary" href="#">GitHub</a>
+            <a class="btn btn-primary" href="#">Explicación</a>
+          </div>
+        </div>
+        <div class="hero-ide">
+          <span class="languaje">JavaScript</span>
+          <div class="divider-ide"></div>
+          <div class="ide-content">
+            <p class="ide-path">scripts/info.js</p>
+            <div class="ide-code">
+              <ul class="ide-code-left">
+                <li>1 <span>{</span></li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8 <span>}</span></li>
+              </ul>
+              <ul class="ide-code-right">
+                <li>nombre: <span>"Tomás"</span></li>
+                <li>apellido: <span>"Sorgetti"</span></li>
+                <li>materia: <span>"Programación I"</span></li>
+                <li>profesor: <span>"Fabrizio Carlassara"</span></li>
+                <li>institución: <span>"Escuela DaVinci"</span></li>
+                <li>fecha: <span>"dd/mm/yy"</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <img class="arrow-down" src="assets/icons/arrow_down.png" alt="arrow down icon">
+      </header>
+      <main>
+        <h2>Mis discos</h2>
+        <button id="cargar">Cargar nuevo disco</button>
+        <button id="mostrar">Mostrar discos</button>
+        <div id="discos">
+          <!--
                     Aca podrian mostrar los discos
                 -->
-      </div>
-    </main>
+        </div>
+      </main>
+    </div>
     <footer>
       <ul>
         <li>Profesor Fabrizio Carlassara</li>
@@ -47,5 +87,8 @@
         </li>
       </ul>
     </footer>
+
+    <!-- scripts -->
+    <script type="module" src="scripts/index.js"></script>
   </body>
 </html>

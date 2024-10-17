@@ -1,4 +1,4 @@
-import { DiscoController } from "./disco.controller";
+import { DiscoController } from "./disco.controller.js";
 
 const discoController = new DiscoController();
 
@@ -11,7 +11,7 @@ function mostrar() {
   discoController.mostrar();
 }
 
-//* EVENT LISTENERS
+//* Event Listeners
 const cargarButton = document.querySelector("#cargar");
 const mostrarButton = document.querySelector("#mostrar");
 

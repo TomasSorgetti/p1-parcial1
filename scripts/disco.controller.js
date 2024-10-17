@@ -1,5 +1,5 @@
-import { DiscoService } from "./disco.service";
-import { pedirDato } from "./utils/pedirDato";
+import { DiscoService } from "./disco.service.js";
+import { pedirDato } from "./utils/pedirDato.js";
 
 export class DiscoController {
   constructor() {
@@ -60,5 +60,7 @@ export class DiscoController {
   /**
    * Muestra todos los discos en el DOM
    */
-  mostrar() {}
+  mostrar() {
+    console.log(this.discoService.getDiscos());
+  }
 }

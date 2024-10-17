@@ -1,5 +1,5 @@
-import { Catalogo } from "./entities/catalogo.entity";
-import { Disco } from "./entities/disco.entity";
+import { Catalogo } from "./entities/catalogo.entity.js";
+import { Disco } from "./entities/disco.entity.js";
 
 export class DiscoService {
   constructor() {
@@ -13,5 +13,9 @@ export class DiscoService {
   }
   existsId(id) {
     return this.catalogo.validarId(id);
+  }
+
+  getDiscos() {
+    return this.catalogo.discos;
   }
 }
