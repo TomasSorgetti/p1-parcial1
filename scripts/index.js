@@ -6,19 +6,22 @@ const discoController = new DiscoController();
 function cargar() {
   discoController.cargar();
 }
+function cargarList() {
+  discoController.cargarLista();
+}
 
 function mostrar() {
   discoController.mostrar();
-  
-  
 }
 
 //* Event Listeners
 const cargarButton = document.querySelector("#cargar");
-const mostrarButton = document.querySelector("#mostrar");
+const cargarLista = document.querySelector("#cargarLista");
+// const mostrarButton = document.querySelector("#mostrar");
 
 cargarButton.addEventListener("click", cargar);
-mostrarButton.addEventListener("click", mostrar);
+cargarLista.addEventListener("click", cargarList);
+// mostrarButton.addEventListener("click", mostrar);
 
 document.addEventListener("DOMContentLoaded", function () {
   mostrar();

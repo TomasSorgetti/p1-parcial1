@@ -26,8 +26,18 @@
             quos numquam eaque ipsa tempora. Incidunt similique eius cum velit.
           </p>
           <div class="buttons-container">
-            <a class="btn btn-secondary" href="#">GitHub</a>
-            <a class="btn btn-primary" href="#">Explicación</a>
+            <a
+              class="btn btn-secondary"
+              href="https://github.com/TomasSorgetti/p1-parcial1"
+              target="_blank"
+              >GitHub</a
+            >
+            <a
+              class="btn btn-primary"
+              href="pages/explicacion.html"
+              target="_blank"
+              >Explicación</a
+            >
           </div>
         </div>
 
@@ -48,11 +58,11 @@
                 <li>8 <span>}</span></li>
               </ul>
               <ul class="ide-code-right">
-                <li>nombre: <span>"Tomás"</span></li>
-                <li>apellido: <span>"Sorgetti"</span></li>
-                <li>materia: <span>"Programación I"</span></li>
-                <li>profesor: <span>"Fabrizio Carlassara"</span></li>
-                <li>institución: <span>"Escuela DaVinci"</span></li>
+                <li>nombre: <span>"Tomás",</span></li>
+                <li>apellido: <span>"Sorgetti",</span></li>
+                <li>materia: <span>"Programación I",</span></li>
+                <li>profesor: <span>"Fabrizio Carlassara",</span></li>
+                <li>institución: <span>"Escuela DaVinci",</span></li>
                 <li>fecha: <span>"dd/mm/yy"</span></li>
               </ul>
             </div>
@@ -62,10 +72,14 @@
           <img src="assets/icons/arrow_down.png" alt="arrow down icon" />
         </a>
       </header>
+
       <main id="main">
         <h2>Mis discos</h2>
-        <button id="cargar">Cargar nuevo disco</button>
-        <button id="mostrar">Mostrar discos</button>
+        <button class="btn btn-secondary" id="cargar">
+          Cargar nuevo disco
+        </button>
+        <button class="btn btn-primary" id="cargarLista">Cargar Lista</button>
+        <!-- <button class="btn btn-primary" id="mostrar">Mostrar discos</button> -->
         <div id="discos">
           <!--
                     Aca podrian mostrar los discos
@@ -73,6 +87,7 @@
         </div>
       </main>
     </div>
+
     <footer>
       <ul>
         <li>Profesor Fabrizio Carlassara</li>

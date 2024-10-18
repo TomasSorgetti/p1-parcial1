@@ -11,6 +11,10 @@ export class DiscoController {
     let discoId;
     do {
       discoId = pedirDato("Ingrese el ID del disco", true);
+      console.log(
+        "Validacion de Id del disco",
+        this.discoService.existsId(discoId)
+      );
     } while (this.discoService.existsId(discoId));
 
     // Se piden los datos del disco
@@ -45,30 +49,38 @@ export class DiscoController {
 
     return pistas;
   }
+
   /**
    * Carga un disco a la lista de discos y pregunta si se quiere cargar otro
    */
   cargar() {
-    try {
-      const datosDisco = this.#pedirDatosDisco();
-      const disco = this.discoService.cargarDisco(datosDisco);
-      if (disco) this.mostrar();
-    } catch (error) {
-      alert(error.message);
-    }
+    //pido los datos del disco
+    const datosDisco = this.#pedirDatosDisco();
+    // le mando los datos al servicio
+    const disco = this.discoService.cargarDisco(datosDisco);
+    // si se crea el disco correctamente, se muestra en el DOM automaticamente
+    if (disco) this.mostrar();
+  }
+
+  /**
+   * Metodo asincrono que carga todos los discos de la lista predefinida.
+   */
+  async cargarLista() {
+    await this.discoService.cargarLista();
+    // Manda a mostrar los discos automaticamente
+    this.mostrar();
   }
 
   /**
    * Muestra todos los discos en el DOM
    */
   mostrar() {
+    // busco los discos
     const discosFound = this.discoService.getDiscos();
-    console.log(discosFound);
 
     const discos = document.querySelector("#discos");
-
     if (!discosFound || discosFound.length === 0) {
-      discos.innerHTML = `<p class="error">No se encontraron discos</p>`;
+      discos.innerHTML = `<p class="error">No se encontraron discos...</p>`;
     } else {
       discos.innerHTML = ``;
     }
