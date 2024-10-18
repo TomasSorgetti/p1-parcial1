@@ -1,5 +1,6 @@
 import { Catalogo } from "./entities/catalogo.entity.js";
 import { Disco } from "./entities/disco.entity.js";
+import { Pista } from "./entities/pista.entity.js";
 
 export class DiscoService {
   constructor() {
@@ -11,7 +12,12 @@ export class DiscoService {
     // creo un disco nuevo
     const newDisco = new Disco({ id, nombre, artista, portada });
     // le agrego las pistas al disco creado
-    pistas.forEach((pista) => newDisco.agregarPista(pista));
+    pistas.forEach((pista) => {
+      const newPista = new Pista(pista);
+      console.log(newPista);
+
+      newDisco.agregarPista(newPista);
+    });
     // retorno el disco creado
     return this.catalogo.addDisco(newDisco);
   }
@@ -41,5 +47,17 @@ export class DiscoService {
   }
   getDiscos() {
     return this.catalogo.discos;
+  }
+  mostrarDiscos() {
+    const discosFound = this.getDiscos();
+
+    const discos = document.querySelector("#discos");
+    if (!discosFound || discosFound.length === 0) {
+      discos.innerHTML = `<p class="error">No se encontraron discos...</p>`;
+    } else {
+      discosFound.forEach((disco) => {
+        discos.innerHTML += disco.getDiscoHtml();
+      });
+    }
   }
 }

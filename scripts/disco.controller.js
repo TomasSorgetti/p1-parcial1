@@ -76,13 +76,6 @@ export class DiscoController {
    */
   mostrar() {
     // busco los discos
-    const discosFound = this.discoService.getDiscos();
-
-    const discos = document.querySelector("#discos");
-    if (!discosFound || discosFound.length === 0) {
-      discos.innerHTML = `<p class="error">No se encontraron discos...</p>`;
-    } else {
-      discos.innerHTML = ``;
-    }
+    this.discoService.mostrarDiscos();
   }
 }
