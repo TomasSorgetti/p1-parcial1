@@ -9,6 +9,7 @@
     --yellow: #FFC600;
     --white: #FFFFFF;
 
+    --opacity-black: #282b2b64;
     scroll-behavior: smooth;
 }
 *{
@@ -158,4 +159,89 @@ header{
     width: 100%;
     text-align: center;
     margin-top: 16rem;
+}
+
+/* DISCOS */
+#discos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 3rem;
+    margin-top: 5rem;
+}
+/* CARDS */
+.card{
+    width: 340px;
+    height: 550px;
+    background-color: var(--black);
+    border-radius: 6px;
+}
+.card-img-cont{
+    width: 100%;
+    height: 230px;
+}
+.card-img-cont img{
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+.card-content{
+    height: calc(550px - 230px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 2rem ;
+}
+.card-content h3{
+    font-size: 1.5rem;
+}
+.card-content ul{
+    list-style: none;
+    width: 100%;
+    padding: 0.5rem;
+    height: 100%;
+    overflow-y: scroll;
+}
+.card-content ul li{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    color: var(--light-grey);
+}
+.card-content ul li h4{
+    font-size: 1rem;
+    color: var(--white);
+    font-weight: 400;
+}
+.btn-container{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: flex-start;
+}
+.card-btn-ver{
+    background-color: transparent;
+    border: 1px solid var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    color: var(--white);
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.card-btn-pedir{
+    background: linear-gradient(90deg, var(--blue) 0%, var(--green) 100%);
+    color: var(--black);
+    border: 1px solid var(--blue);
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1rem;
 }

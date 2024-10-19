@@ -27,13 +27,16 @@ export class DiscoService {
       .then((response) => response.json())
       .then((data) => {
         data.forEach((disco) => {
-          const newDisco = new Disco(
-            disco.id,
-            disco.nombre,
-            disco.artista,
-            disco.portada,
-            disco.pistas
-          );
+          const newDisco = new Disco({
+            id: disco.id,
+            nombre: disco.nombre,
+            artista: disco.artista,
+            portada: disco.portada,
+          });
+          disco.pistas.forEach((pista) => {
+            const newPista = new Pista(pista);
+            newDisco.agregarPista(newPista);
+          });
           this.catalogo.addDisco(newDisco);
         });
       })
@@ -50,11 +53,13 @@ export class DiscoService {
   }
   mostrarDiscos() {
     const discosFound = this.getDiscos();
+    console.log(discosFound);
 
     const discos = document.querySelector("#discos");
-    if (!discosFound || discosFound.length === 0) {
+    if (discosFound.length === 0) {
       discos.innerHTML = `<p class="error">No se encontraron discos...</p>`;
     } else {
+      discos.innerHTML = "";
       discosFound.forEach((disco) => {
         discos.innerHTML += disco.getDiscoHtml();
       });

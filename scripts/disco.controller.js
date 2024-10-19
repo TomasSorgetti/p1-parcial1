@@ -7,15 +7,21 @@ export class DiscoController {
   }
 
   #pedirDatosDisco() {
-    // Se pide el id del disco y se repite si ya existe o el id es incorrecto
     let discoId;
-    do {
-      discoId = pedirDato("Ingrese el ID del disco", true);
-      console.log(
-        "Validacion de Id del disco",
-        this.discoService.existsId(discoId)
-      );
-    } while (this.discoService.existsId(discoId));
+    const pedirIdDisco = () => {
+      // Se pide el id del disco
+      const idPedido = pedirDato("Ingrese el ID del disco", true);
+
+      // Si el id ya existe, se avisa por alerta y se vuelve a pedir
+      if (this.discoService.existsId(idPedido)) {
+        alert("Ya existe un disco con ese ID. Ingrese otro nuevamente");
+        return pedirIdDisco();
+      }
+
+      discoId = idPedido;
+    };
+
+    pedirIdDisco();
 
     // Se piden los datos del disco
     const discoNombre = pedirDato("Ingrese el nombre del disco");
