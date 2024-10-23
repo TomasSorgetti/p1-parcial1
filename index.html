@@ -75,10 +75,20 @@
 
       <main id="main">
         <h2>Mis discos</h2>
-        <button class="btn btn-secondary" id="cargar">
-          Cargar nuevo disco
-        </button>
-        <button class="btn btn-primary" id="cargarLista">Cargar Lista</button>
+        <div class="disc-buttons-cont">
+          <div>
+            <button class="btn btn-secondary" id="cargar">
+              Cargar nuevo disco
+            </button>
+            <button class="btn btn-primary" id="cargarLista">
+              Cargar Lista
+            </button>
+          </div>
+          <div class="search-container">
+            <input type="text" id="search" placeholder="Buscar..." />
+            <button class="btn btn-primary" id="searchButton">Buscar</button>
+          </div>
+        </div>
         <!-- <button class="btn btn-primary" id="mostrar">Mostrar discos</button> -->
         <div id="discos">
           <!--

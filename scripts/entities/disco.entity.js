@@ -7,10 +7,18 @@ export class Disco {
     this.pistas = [];
   }
 
+  /**
+   * Agrega una pista
+   * @param {Pista} pista
+   */
   agregarPista(pista) {
     this.pistas.push(pista);
   }
 
+  /**
+   * Devuelve el html del disco
+   * @returns {string}
+   */
   getDiscoHtml() {
     let html = ``;
     html += `<div class="card"><div class="card-img-cont"><img src="${this.portada}" alt="${this.nombre} portada" /></div>\n`;

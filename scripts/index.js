@@ -1,35 +1,60 @@
-import { DiscoController } from "./disco.controller.js";
+import { DiscoController } from "./controllers/disco.controller.js";
 
 const discoController = new DiscoController();
 
 //* Main functions
+/**
+ * Carga un disco a la lista de discos y pregunta si se quiere cargar otro
+ */
 function cargar() {
   discoController.cargar();
 }
+/**
+ * Carga todos los discos de la lista predefinida y muestra los discos
+ */
 function cargarList() {
   discoController.cargarLista();
 }
 
+/**
+ * Muestra todos los discos en el DOM
+ */
 function mostrar() {
   discoController.mostrar();
 }
 
+/**
+ * Busca un disco por su id y muestra su stock
+ * @param {number} discoId
+ */
 function verStock(discoId) {
-  alert(`Consultando el stock del disco con ID: ${discoId}`);
+  discoController.getStock(discoId);
 }
 
+/**
+ * Busca un disco por su id y le resta 1 a su stock
+ * @param {number} discoId
+ */
 function retirarDisco(discoId) {
-  alert(`Retirando el disco con ID: ${discoId}`);
+  discoController.removeStock(discoId);
+}
+
+/**
+ * Busca un disco por su nombre y muestra su stock
+ */
+function getDiscoByName() {
+  const diskName = searchButton.parentElement.querySelector("input").value;
+  discoController.getDiscoByName(diskName);
 }
 
 //* Event Listeners
 const cargarButton = document.querySelector("#cargar");
 const cargarLista = document.querySelector("#cargarLista");
-// const mostrarButton = document.querySelector("#mostrar");
+const searchButton = document.querySelector("#searchButton");
 
 cargarButton.addEventListener("click", cargar);
 cargarLista.addEventListener("click", cargarList);
-// mostrarButton.addEventListener("click", mostrar);
+searchButton.addEventListener("click", getDiscoByName);
 
 document.addEventListener("DOMContentLoaded", function () {
   mostrar();
