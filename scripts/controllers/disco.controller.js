@@ -97,8 +97,8 @@ export class DiscoController {
    * Muestra todos los discos en el DOM
    */
   mostrar() {
-    // busco los discos
     try {
+      // busco los discos
       this.discoService.mostrarDiscos();
     } catch (error) {
       alert(error.message);
@@ -112,7 +112,9 @@ export class DiscoController {
   getStock(discoId) {
     try {
       const stock = this.discoService.getStock(discoId);
-      alert(`El stock del disco es: ${stock}`);
+      if (stock) {
+        alert(`El stock del disco es: ${stock}`);
+      }
     } catch (error) {
       alert(error.message);
     }
@@ -137,7 +139,9 @@ export class DiscoController {
   removeStock(discoId) {
     try {
       const stock = this.discoService.removeStock(discoId);
-      alert(`Quedan ${stock} disco(s) en stock`);
+      if (stock) {
+        alert(`Quedan ${stock} disco(s) en stock`);
+      }
     } catch (error) {
       alert(error.message);
     }

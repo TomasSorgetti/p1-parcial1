@@ -12,10 +12,9 @@
         <div>
           <h1>Explicación parcial programacón I</h1>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet,
-            error. Rem, iusto repudiandae in, dignissimos inventore est non
-            assumenda saepe consectetur eligendi neque ipsa expedita aspernatur
-            vel numquam reprehenderit sint.
+            Se realizó una aplicación que está diseñada para gestionar un
+            catálogo de discos musicales, permitiendo a los usuarios agregar y
+            visualizar discos, así como sus pistas y stock disponible
           </p>
         </div>
       </section>
@@ -27,10 +26,9 @@
         <div>
           <h2>Estructura del programa</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis
-            asperiores qui distinctio similique totam explicabo laboriosam,
-            doloribus repudiandae, assumenda ex repellat perferendis odit nisi
-            architecto? Sed distinctio aut laborum veritatis.
+            La aplicación sigue una arquitectura modular con una clara
+            separación de responsabilidades, lo que facilita el mantenimiento,
+            escalabilidad y legibilidad del código.
           </p>
         </div>
       </section>
@@ -38,10 +36,11 @@
         <div>
           <h2>Flujo principal</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
-            dignissimos nobis ipsa necessitatibus repudiandae quos laborum,
-            nihil consectetur dolorem iure facere consequuntur commodi provident
-            a rem optio quam? Aliquam, placeat.
+            El flujo comienza con la interacción del usuario realizando un
+            evento, que es capturada por el controlador, que se encarga de
+            recibir la solicitud inicial, para luego derivarla al servicio, el
+            cual se encarga de realizar las tareas de la aplicación e
+            interactuar con las entidades.
           </p>
         </div>
         <img
@@ -51,23 +50,22 @@
       </section>
       <section class="section">
         <div>
-          <h2>Controladores</h2>
+          <h2>Controlador</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
-            dignissimos nobis ipsa necessitatibus repudiandae quos laborum,
-            nihil consectetur dolorem iure facere consequuntur commodi provident
-            a rem optio quam? Aliquam, placeat.
+            El controlador se encarga de interactuar con el usuario para pedirle
+            datos, para luego derivarlos al servicio y notificar al usuario en
+            caso de que haya habido algún problema.
           </p>
-        </div>        
+        </div>
       </section>
       <section class="section">
         <div>
           <h2>Servicios</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
-            dignissimos nobis ipsa necessitatibus repudiandae quos laborum,
-            nihil consectetur dolorem iure facere consequuntur commodi provident
-            a rem optio quam? Aliquam, placeat.
+            El servicio se encarga de realizar las tareas de la aplicación e
+            interactuar con las entidades de los discos, pistas y catálogo. Es
+            un puente entre los datos del disco y las operaciones que necesita
+            realizar el controlador.
           </p>
         </div>
       </section>
@@ -75,10 +73,9 @@
         <div>
           <h2>Entidades</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
-            dignissimos nobis ipsa necessitatibus repudiandae quos laborum,
-            nihil consectetur dolorem iure facere consequuntur commodi provident
-            a rem optio quam? Aliquam, placeat.
+            Las entidades son clases que representan los objetos principales de
+            la aplicación, definen la estructura y el comportamiento de los
+            discos, las pistas que contienen, y el catálogo donde se almacenan.
           </p>
         </div>
       </section>
@@ -86,10 +83,23 @@
         <div>
           <h2>Loop de repeticiones</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
-            dignissimos nobis ipsa necessitatibus repudiandae quos laborum,
-            nihil consectetur dolorem iure facere consequuntur commodi provident
-            a rem optio quam? Aliquam, placeat.
+            Cuando se pide cada dato para un disco, se deriva a una clase
+            validadora y se asegura de que el dato sea correcto. Si el dato es
+            incorrecto, se repite el proceso mediante una función recursiva, y
+            no un bucle, por que reduce la cantidad de código y facilita la
+            lectura(aunque se puede implementar un bucle, que tiene mejor
+            rendimiento).
+          </p>
+        </div>
+      </section>
+      <section class="section">
+        <div>
+          <h2>Uso de try catch</h2>
+          <p>
+            En la aplicación se utiliza un try catch para manejar los errores
+            que puedan ocurrir al interactuar con el usuario, mostrando una
+            alerta cuando ocurre un error, o para repetir una función si el
+            usuario ingresa un dato incorrecto.
           </p>
         </div>
       </section>

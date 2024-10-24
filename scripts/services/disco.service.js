@@ -18,9 +18,9 @@ export class DiscoService {
     const newDisco = new Disco({ id, nombre, artista, portada });
     // le agrego las pistas al disco creado
     pistas.forEach((pista) => {
+      // por cada pista creo una nueva instancia de Pista
       const newPista = new Pista(pista);
-      console.log(newPista);
-
+      // agrego la pista al disco
       newDisco.agregarPista(newPista);
     });
     // retorno el disco creado
@@ -35,6 +35,7 @@ export class DiscoService {
       .then((response) => response.json())
       .then((data) => {
         data.forEach((disco) => {
+          //por cada disco obtenido, creo una instancia de Disco
           const newDisco = new Disco({
             id: disco.id,
             nombre: disco.nombre,
@@ -42,13 +43,17 @@ export class DiscoService {
             portada: disco.portada,
           });
           disco.pistas.forEach((pista) => {
+            //por cada pista, creo una instancia de Pista
             const newPista = new Pista(pista);
+            //agrego la pista al disco
             newDisco.agregarPista(newPista);
           });
+          //agrego el disco nuevo al catálogo
           this.catalogo.addDisco(newDisco);
         });
       })
       .catch((error) => {
+        //si hay un error (nunca va a ocurrir porque es un archivo local), lanzo un error para que lo agarre el controller
         throw new Error("No se pudo cargar la lista de discos");
       });
   }
@@ -75,18 +80,24 @@ export class DiscoService {
    * @param {string} diskName
    */
   getDiscoByName(diskName) {
+    // TODO => parte de esta función hace lo mismo que mostrarDiscos, se podría hacer un metodo para reutilizar
+    // busco el disco
     const discosFound = this.catalogo.getDiscoByName(diskName);
+    // si no se encontro el disco, lanza un error
     if (!discosFound || discosFound.length === 0) {
       throw new Error(`No se encontro el disco`);
     }
 
+    // busco el div donde se muestran los discos
     const discos = document.querySelector("#discos");
     discos.innerHTML = "";
 
+    // Si no hay discos agregados, muestra un mensaje de error
     if (discosFound.length === 0) {
       discos.innerHTML = `<p class="error">No se encontraron discos...</p>`;
     } else {
       discosFound.forEach((disco) => {
+        // por cada disco en el catalogo, lo agrego al dom
         discos.innerHTML += disco.getDiscoHtml();
       });
     }
@@ -96,11 +107,17 @@ export class DiscoService {
    * Muestra los discos en el dom
    */
   mostrarDiscos() {
+    // TODO => parte de esta función hace lo mismo que getDiscoByName, se podría hacer un metodo para reutilizar
+    // busco los discos
     const discosFound = this.getDiscos();
+    // busco el div donde se muestran los discos
     const discos = document.querySelector("#discos");
+
+    // si no hay discos agregados, muestra un mensaje de error
     if (discosFound.length === 0) {
       discos.innerHTML = `<p class="error">No se encontraron discos...</p>`;
     } else {
+      // agrego los discos al dom
       discos.innerHTML = "";
       discosFound.forEach((disco) => {
         discos.innerHTML += disco.getDiscoHtml();
@@ -114,10 +131,13 @@ export class DiscoService {
    * @returns
    */
   getStock(discoId) {
+    // busco el stock del disco
     const stockFound = this.catalogo.getStockById(discoId);
+    // si no se encontro el disco, lanza un error
     if (!stockFound) {
       throw new Error(`No se encontro el disco con id ${discoId}`);
     }
+    // devuelvo el stock
     return stockFound.stock;
   }
 
