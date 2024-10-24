@@ -31,11 +31,14 @@ export class DiscoService {
    * Carga la lista de discos desde el archivo JSON
    */
   async cargarLista() {
-    await fetch("/discos.json")
+    // no funciona la petición a /discos.json con el sitio deployado
+    // await fetch("/discos.json")
+    await fetch("https://tomassorgetti.github.io/p1-parcial1/discos.json")
       .then((response) => response.json())
       .then((data) => {
         data.forEach((disco) => {
           //por cada disco obtenido, creo una instancia de Disco
+          // TODO => validar si el id del disco ya existe
           const newDisco = new Disco({
             id: disco.id,
             nombre: disco.nombre,
@@ -53,7 +56,8 @@ export class DiscoService {
         });
       })
       .catch((error) => {
-        //si hay un error (nunca va a ocurrir porque es un archivo local), lanzo un error para que lo agarre el controller
+        //si hay un error (no debería de ocurrir porque es un archivo local), lanzo un error para que lo agarre el controller
+        console.error("No se pudo cargar la lista de discos:", error);
         throw new Error("No se pudo cargar la lista de discos");
       });
   }
@@ -84,9 +88,9 @@ export class DiscoService {
     // busco el disco
     const discosFound = this.catalogo.getDiscoByName(diskName);
     // si no se encontro el disco, lanza un error
-    if (!discosFound || discosFound.length === 0) {
-      throw new Error(`No se encontro el disco`);
-    }
+    // if (!discosFound || discosFound.length === 0) {
+    //   throw new Error(`No se encontro el disco`);
+    // }
 
     // busco el div donde se muestran los discos
     const discos = document.querySelector("#discos");
