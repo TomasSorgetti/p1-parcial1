@@ -83,4 +83,17 @@ export class Catalogo {
   validarId(id) {
     return this.discos.some((disco) => disco.id === id);
   }
+
+  // TODO => ver si funca!!! (supongo que hay que agregarlo en la funcion mostrar(?))
+  getPistaHighestDuration() {
+    return this.discos.reduce((maxPista, album) => {
+      const pistaAlbumMax = album.pistas.reduce((max, pista) => {
+        return pista.duracion > max.duracion ? pista : max;
+      }, album.pistas[0]);
+
+      return pistaAlbumMax.duracion > maxPista.duracion
+        ? pistaAlbumMax
+        : maxPista;
+    }, this.discos[0].pistas[0]);
+  }
 }

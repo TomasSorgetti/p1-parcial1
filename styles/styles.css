@@ -177,6 +177,7 @@ header{
     border-radius: 6px;
 }
 .card-img-cont{
+    position: relative;
     width: 100%;
     height: 230px;
 }
@@ -244,6 +245,20 @@ header{
     font-weight: 700;
     cursor: pointer;
     font-size: 1rem;
+}
+.disk_duration{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 0rem 1rem;
+    background-color: var(--black);
+    color: var(--orange);
+}
+.card-pista-amount{
+    font-size: 0.75rem;
+}
+.long_duration, .card-pista-amount span{
+    color: var(--orange);
 }
 
 /* FILTER && BUTTONS */
