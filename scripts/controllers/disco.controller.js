@@ -15,7 +15,10 @@ export class DiscoController {
     const pedirIdDisco = () => {
       // Se pide el id del disco
       const idPedido = pedirDato("Ingrese el ID del disco", true);
-
+      if (idPedido < 1 || idPedido > 999) {
+        alert("Debe ser mayor a 1 y menor a 999");
+        return pedirIdDisco();
+      }
       // Si el id ya existe, se avisa por alerta y se vuelve a pedir
       if (this.discoService.existsId(idPedido)) {
         alert("Ya existe un disco con ese ID. Ingrese otro nuevamente");
@@ -51,8 +54,31 @@ export class DiscoController {
     let pistas = [];
 
     function pedirPista() {
+      // pido el nombre de la pista
       const nombre = pedirDato("Ingrese el nombre de la pista");
-      const duracion = pedirDato("Ingrese la duración de la pista", true);
+      // pido la duracion de la pista
+      let duracion;
+      let condition = false;
+      do {
+        // la validación de la duración se hace en el validador
+        duracion = pedirDato(
+          "Ingrese la duración de la pista en segundos",
+          true
+        );
+        // si la duracion es negativa, se vuelve a pedir
+        if (duracion < 0) {
+          alert("La duración no puede ser negativa");
+          condition = true;
+          // si la duracion es mayor a 2 horas, se vuelve a pedir
+          // TODO => si el máximo son 2 horas, debería modificar el metodo para convertir los segundos en formato m:s a hh:mm:ss
+        } else if (duracion > 7200) {
+          alert("La duración no puede ser mayor a 2 horas");
+          condition = true;
+        } else {
+          condition = false;
+        }
+      } while (condition);
+
       pistas.push({ nombre, duracion });
 
       if (confirm("¿Desea cargar otra pista?")) {
@@ -112,9 +138,7 @@ export class DiscoController {
   getStock(discoId) {
     try {
       const stock = this.discoService.getStock(discoId);
-      if (stock) {
-        alert(`El stock del disco es: ${stock}`);
-      }
+      alert(`El stock del disco es: ${stock}`);
     } catch (error) {
       alert(error.message);
     }
@@ -139,9 +163,7 @@ export class DiscoController {
   removeStock(discoId) {
     try {
       const stock = this.discoService.removeStock(discoId);
-      if (stock) {
-        alert(`Quedan ${stock} disco(s) en stock`);
-      }
+      alert(`Se retiró un disco. Quedan ${stock} disco(s) en stock`);
     } catch (error) {
       alert(error.message);
     }

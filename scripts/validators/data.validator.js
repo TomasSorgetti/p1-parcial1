@@ -6,9 +6,9 @@ export class Validator {
     const parsedNumber = parseInt(number);
 
     // el metodo es para validar numero, no id (aunque el id es el único numero ingresado), no debería de validarse acá
-    if (number < 1 || number > 999) {
-      throw new Error("Debe ser mayor a 1 y menor a 999");
-    }
+    // if (number < 1 || number > 999) {
+    //   throw new Error("Debe ser mayor a 1 y menor a 999");
+    // }
     // si number es null o undefined, lanza un error
     if (number === null || number === undefined) {
       throw new Error("Debe de enviar un número");
@@ -18,9 +18,9 @@ export class Validator {
       throw new Error("Debe ser un número");
     }
     // si el numero es 0 o negativo, lanza un error
-    else if (parsedNumber <= 0) {
-      throw new Error("No puede ser menor a 1");
-    }
+    // else if (parsedNumber <= 0) {
+    //   throw new Error("No puede ser menor a 1");
+    // }
     // retorna el numero si es correcto
     return parsedNumber;
   }

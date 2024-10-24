@@ -28,6 +28,8 @@ function mostrar() {
  * @param {number} discoId
  */
 function verStock(discoId) {
+  console.log("viendo stock", discoId);
+
   discoController.getStock(discoId);
 }
 
